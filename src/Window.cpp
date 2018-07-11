@@ -1,25 +1,57 @@
 #include "Window.hpp"
+#include "Map.hpp"
 
-Window::Window() : _window(sf::VideoMode(640,480))
+Window::Window() : _window(sf::VideoMode(500,500), "Strategy Game")
 {}
 
-Window::run()
+void Window::run()
 {
-	while(window.isOpen())
+	sf::Texture texture;
+	texture.loadFromFile("TMSSPack/Tile-set - Toen's Medieval Strategy (16x16) - v.1.0.png");
+
+	sf::Sprite map(texture);
+	map.setScale(2,2);
+	map.setTextureRect(sf::IntRect(0,0,16,16));
+	
+	Map mapa;
+	
+	while(_window.isOpen())
 	{
 		sf::Event event;
-		while(window.pollEvent(event))
+		while(_window.pollEvent(event))
 		{
-			if(event.type == sf::Event::Closed)
-			{
-				// Close window button clicked
-				window.close();
-			}
+			handle_input(event);
 		}
 
 		// Update logic here
-		window.clear(sf::Color(16,16,16,255));
+		_window.clear(sf::Color(16,16,16,255));
 		// Draw here
-		window.display();
+		_window.draw(map);
+		_window.draw(mapa);
+		_window.display();
+	}
+}
+
+void Window::handle_input(sf::Event event)
+{
+	switch (event.type)
+	{
+		case sf::Event::Closed:
+			_window.close();
+			break;
+		// Handle the input keys
+		case sf::Event::KeyPressed:
+		{
+			switch(event.key.code)
+			{
+				case sf::Keyboard::Escape:
+					_window.close();
+					break;
+				default:
+					break;
+			}
+		} break;
+		default:
+			break;
 	}
 }
