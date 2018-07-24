@@ -1,38 +1,32 @@
-#include "Window.hpp"
-#include "Map.hpp"
+#include "game.hpp"
+#include "worker.hpp"
 
-Window::Window() : _window(sf::VideoMode(500,500), "Strategy Game")
-{}
+Game::Game() : _window(sf::VideoMode(880,660), "Strategy Game", sf::Style::Titlebar | sf::Style::Close),
+_view(sf::FloatRect(-200,-138, 880, 660)), mapa(24,24) 
+{ }
 
-void Window::run()
-{
-	sf::Texture texture;
-	texture.loadFromFile("TMSSPack/Tile-set - Toen's Medieval Strategy (16x16) - v.1.0.png");
-
-	sf::Sprite map(texture);
-	map.setScale(2,2);
-	map.setTextureRect(sf::IntRect(0,0,16,16));
-	
-	Map mapa;
-	
+void Game::run()
+{	
+	_view.zoom(0.60f);
+	_window.setView(_view);
 	while(_window.isOpen())
 	{
 		sf::Event event;
+		Worker w;
 		while(_window.pollEvent(event))
 		{
 			handle_input(event);
 		}
-
 		// Update logic here
 		_window.clear(sf::Color(16,16,16,255));
 		// Draw here
-		_window.draw(map);
 		_window.draw(mapa);
+		_window.draw(w);
 		_window.display();
 	}
 }
 
-void Window::handle_input(sf::Event event)
+void Game::handle_input(sf::Event event)
 {
 	switch (event.type)
 	{

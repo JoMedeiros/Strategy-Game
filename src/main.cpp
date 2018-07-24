@@ -1,10 +1,10 @@
 #include <iostream>
-#include "Window.hpp"
+#include "game.hpp"
 
 int main(int arc, char const *argv[])
 {
 	
-	Window win;
+	Game win;
 	win.run();
 
 	return 0;

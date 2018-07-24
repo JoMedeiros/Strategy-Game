@@ -32,7 +32,7 @@ INCLUDES = -I include/
 # Space-separated pkg-config libraries used by this project
 LIBS = -lsfml-graphics -lsfml-window -lsfml-system
 
-.PHONY: default_target debug release dirs clean
+.PHONY: default_target debug release dirs clean all
 default_target: release
 
 debug: export CXXFLAGS := $(CXXFLAGS) $(COMPILE_FLAGS) $(DEBUG)
@@ -55,13 +55,9 @@ clean:
 	@$(RM) -r $(BUILD_PATH)
 	@$(RM) -r $(BIN_PATH)
 
-# checks the executable and symlinks to the output
-.PHONY: all
+# checks the executable to the output
 all: $(BIN_PATH)/$(BIN_NAME)
-	@echo "Making symlink: $(BIN_NAME) -> $<"
-	@$(RM) $(BIN_NAME)
-	@ln -s $@ $(BIN_NAME)
-
+	
 # Creation of the executable
 $(BIN_PATH)/$(BIN_NAME): $(OBJECTS)
 	@echo "Linking: $@"

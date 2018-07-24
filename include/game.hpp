@@ -2,15 +2,18 @@
 #define _WINDOW_HPP_
 
 #include <SFML/Graphics.hpp>
+//#include "Entity.hpp"
+#include "map.hpp"
 
-class Window
+class Game
 {
 private:
 	sf::RenderWindow _window;
-	sf::Sprite _map;
+	sf::View _view;
+	Map mapa;
 	void handle_input(sf::Event event);
 public:
-	Window();
+	Game();
 	void run();
 };
 
