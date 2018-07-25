@@ -1,5 +1,16 @@
 #include "map.hpp"
 
+Map::Map() : _width(16), _height(16)
+{
+	entities = std::vector<std::vector<Entity*>>(_height);
+	for (int i = 0; i < _height; ++i)
+	{
+		entities[i] = std::vector<Entity*>(_width);
+	}
+	entities[0][0] = new Village;
+}
+
+Map::Map(int width, int height) : _width(width), _height(height) { }
 
 void Map::draw(sf::RenderTarget& target, 
 		sf::RenderStates states) const
@@ -14,4 +25,5 @@ void Map::draw(sf::RenderTarget& target,
 			target.draw(_assets, states);
 		}
 	}
+
 }

@@ -6,10 +6,12 @@
 class Unit : public Entity
 {
 public:
-	Unit() { };
+	Unit();
+	int get_quantity() const;
+	void set_quantity(int quantity);
 private:
-	int quantity; ///< Number of units
-	int health; ///< Unit health
+	int _quantity; ///< Number of units
+	int _health; ///< Unit health
 };
 
 #include "worker.hpp"

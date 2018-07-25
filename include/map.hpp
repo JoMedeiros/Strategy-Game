@@ -3,19 +3,19 @@
 
 #include <SFML/Graphics.hpp>
 #include "entity.hpp"
+#include "village.hpp"
 
 class Map : public sf::Drawable, public Entity
 {
 public:
 	Map(const Map&) = delete;
 	Map& operator=(const Map&) = delete;
-	Map() {};
-	Map(int width, int height) : _width(width), _height(height) { }
+	Map();
+	Map(int width, int height);
 private:
-	int _width = 16;
-	int _height = 16;
-	sf::Sprite** _tiles;
-	sf::Texture _texture;
+	int _width;
+	int _height;
+	std::vector<std::vector<Entity*>> entities;
 	virtual void draw(sf::RenderTarget& target, 
 		sf::RenderStates states) const override;
 };
