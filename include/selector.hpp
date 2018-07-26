@@ -1,5 +1,5 @@
-#ifndef _SELECTOR_HPP
-#define _SELECTOR_HPP
+#ifndef _SELECTOR_HPP_
+#define _SELECTOR_HPP_
 
 #include "entity.hpp"
 
@@ -9,9 +9,9 @@ public:
 	Selector();
 	void handle_input(sf::Event event);
 private:
-	bool _selected = false;
+	//bool _selected = false;
 	virtual void draw(sf::RenderTarget& target, 
 		sf::RenderStates states) const override;
 };
 
-#endif
+#endif /* SELECTOR_HPP_ */

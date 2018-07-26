@@ -10,6 +10,7 @@ public:
 	Worker();
 	Worker(Color color);
 	Worker(Color color, int x, int y);
+	//virtual ~Worker(){}
 private:
 	int collected_wood; ///<
 	int collected_rock; ///<

@@ -12,6 +12,8 @@ public:
 	Map& operator=(const Map&) = delete;
 	Map();
 	Map(int width, int height);
+	int get_width() const;
+	int get_height() const;
 private:
 	int _width;
 	int _height;

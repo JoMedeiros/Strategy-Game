@@ -16,3 +16,11 @@ void Unit::set_quantity(int quantity)
 		_quantity = 64;
 	}
 }
+
+sf::String Unit::get_string() const
+{
+	std::stringstream strs;
+	strs << "units:\n" << get_quantity() << "\n";
+	sf::String str(strs.str());
+	return str;
+}

@@ -26,18 +26,22 @@ void Selector::handle_input(sf::Event event)
 			{
 				case sf::Keyboard::Right:
 					set_x(get_x() + 1);
+					set_selected(false);
 					break;
 				case sf::Keyboard::Down:
 					set_y(get_y() + 1);
+					set_selected(false);
 					break;
 				case sf::Keyboard::Left:
 					set_x(get_x() - 1);
+					set_selected(false);
 					break;
 				case sf::Keyboard::Up:
 					set_y(get_y() - 1);
+					set_selected(false);
 					break;
 				case sf::Keyboard::Enter:
-					_selected = _selected ? false : true;
+					Entity::_selected = Entity::_selected ? false : true;
 					break;
 				default:
 					break;

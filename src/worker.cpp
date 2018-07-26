@@ -20,21 +20,16 @@ void Worker::draw(sf::RenderTarget& target,
 	
 	// Desenhando o número de trabalhadores
 	sf::Font font;
-	//sf::String path = "./fonts/04b30/04B_30__.TTF";
-	//sf::String path = "./fonts/fipps/Fipps-Regular.otf";
-	//sf::String path = "./fonts/Terminalscope/terminalscope.ttf";
 	sf::String path = "./fonts/8-bit-madness/8-Bit Madness.ttf";
 	
 	if (!font.loadFromFile(path))
-	{
 		std::cout << "Sem fonte\n";
-	}
+
 	// Converts an int into a string
 	std::stringstream strs;
 	strs << get_quantity();
 	sf::Text text(strs.str(), font, 16);
 	text.setPosition(Entity::_x*16, Entity::_y*16);
-	//text.setFillColor(sf::Color::Red);
 
 	target.draw(text, states);
 }

@@ -4,7 +4,7 @@
 sf::Texture Entity::_texture;
 sf::Sprite Entity::_assets;
 
-Entity::Entity(int x, int y) : _x(x), _y(y)
+Entity::Entity(int x, int y) : _x(x), _y(y), _selected(false)
 {
 	_texture.loadFromFile("TMSSPack/Tile-set - Toen's Medieval Strategy (16x16) - v.1.0.png");
 	_assets.setTexture(_texture);
@@ -36,4 +36,14 @@ int Entity::get_x() const
 int Entity::get_y() const
 {
 	return _y;
+}
+
+bool Entity::is_selected() const
+{
+	return _selected;
+}
+
+void Entity::set_selected(bool selected)
+{
+	_selected = selected;
 }

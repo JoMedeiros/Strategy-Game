@@ -25,5 +25,14 @@ void Map::draw(sf::RenderTarget& target,
 			target.draw(_assets, states);
 		}
 	}
+}
 
+int Map::get_width() const
+{
+	return _width;
+}
+
+int Map::get_height() const
+{
+	return _height;
 }
