@@ -2,19 +2,7 @@
 #define _ENTITY_HPP_
 
 #include <SFML/Graphics.hpp>
-
-#ifndef MAP_WIDTH
-#define MAP_WIDTH 24
-#endif
-
-#ifndef MAP_HEIGHT
-#define MAP_HEIGHT 24
-#endif
-
-enum Color
-{
-	BLUE, RED, YELLOW, GREEN, WHITE
-};
+#include "common.hpp"
 
 class Entity 
 {
